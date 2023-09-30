@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: CC0-1.0
+
+[constants]
+# TODO: edit these paths for your own locations
+ndk = '/mnt/work/aosp/android-ndk-r25c'
+
+# see: https://android.googlesource.com/platform/ndk/+/master/docs/BuildSystemMaintainers.md#target-selection
+triple = 'aarch64-linux-android'
+android_api_level = '33'
+target = triple + android_api_level
+
+toolchain = ndk / 'toolchains/llvm/prebuilt/linux-x86_64/bin'
+
+[properties]
+cpp_stdlib = 'vndk'
+
+[built-in options]
+cpp_args = ['-target', target]
+
+[binaries]
+c = toolchain / target + '-clang'
+cpp = toolchain / target + '-clang++'
+ar = toolchain / 'llvm-ar'
+strip = toolchain / 'llvm-strip'
+config = toolchain / 'llvm-config'
+
+[host_machine]
+system = 'linux'
+cpu_family ='aarch64'
+cpu = 'cortex-a57.cortex-a53'
+endian = 'little'

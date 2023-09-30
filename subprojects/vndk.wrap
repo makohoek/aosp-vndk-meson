@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: CC0-1.0
+
+[wrap-git]
+directory = vndk
+url = https://android.googlesource.com/platform/prebuilts/vndk/v33
+# android14-dev
+revision = f2c7dcfb4032a8989ac3fd3d71f95d580326991f
+depth = 1
+patch_directory = vndk
+
+[provide]
+dependency_names = vndk_libc, vndk_libcpp, liblog, libcutils, libutils, libhardware, libsystem, libmedia, libui
