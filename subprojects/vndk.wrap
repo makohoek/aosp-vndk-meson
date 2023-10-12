@@ -2,9 +2,9 @@
 
 [wrap-git]
 directory = vndk
-url = https://android.googlesource.com/platform/prebuilts/vndk/v33
-# android14-dev
-revision = f2c7dcfb4032a8989ac3fd3d71f95d580326991f
+url = https://android.googlesource.com/platform/prebuilts/vndk/v34
+# main
+revision = 930e27bad98e1b51602db2ad98984bf2426b4f21
 depth = 1
 patch_directory = vndk
 

@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: CC0-1.0
 
 project('vndk', 'cpp',
-        version : 'vndk-v33')
+        version : 'vndk-v34')
 
 if host_machine.cpu_family() != 'aarch64'
     error('vndk only supports aarch64 cpu_family')
