@@ -20,14 +20,16 @@ https://github.com/mesonbuild/meson/pull/12361
 
 2. Download the NDK:
 ```
-wget https://dl.google.com/android/repository/android-ndk-r25c-linux.zip
+wget https://dl.google.com/android/repository/android-ndk-r26b-linux.zip
+unzip android-ndk-r26b-linux.zip
+mv android-ndk-r26b /mnt/work/aosp/
 ```
 
 Update `aarch64-linux-android-ndk.txt` to include your own NDK install path:
 ```ini
 [constants]
 # TODO: edit these paths for your own locations
-ndk = '/mnt/work/aosp/android-ndk-r25c'
+ndk = '/mnt/work/aosp/android-ndk-r26b'
 ```
 
 ## Build instructions
