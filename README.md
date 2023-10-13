@@ -12,8 +12,7 @@ The following projects are involved:
 
 ## Pre-requisite
 
-1. Install my custom version of meson:
-https://github.com/makohoek/meson/tree/nostdlib%2B%2B
+1. Install upstream `meson` from https://github.com/mesonbuild/meson
 
 Do to a bug in meson, we cannot override the standard C++ library. See:
 https://github.com/mesonbuild/meson/pull/12361
