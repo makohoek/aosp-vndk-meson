@@ -3,17 +3,24 @@
 project('vndk', 'cpp',
         version : 'vndk-v34')
 
-if host_machine.cpu_family() != 'aarch64'
-    error('vndk only supports aarch64 cpu_family')
+cpu_family = host_machine.cpu_family()
+if cpu_family == 'x86_64'
+  cpu = 'x86_64'
+  prebuilt_path = cpu / 'arch-x86_64/shared'
+elif cpu_family == 'aarch64'
+  cpu = 'arm64'
+  prebuilt_path = cpu / 'arch-arm64-armv8-a/shared'
+else
+    error('Architecture:  ' + cpu_family + ' not supported')
 endif
 
 prebuild_libraries = [
-    meson.current_source_dir() / 'arm64/arch-arm64-armv8-a/shared/llndk-stub',
-    meson.current_source_dir() / 'arm64/arch-arm64-armv8-a/shared/vndk-sp',
-    meson.current_source_dir() / 'arm64/arch-arm64-armv8-a/shared/vndk-core',
+    meson.current_source_dir() / prebuilt_path / 'llndk-stub',
+    meson.current_source_dir() / prebuilt_path / 'vndk-sp',
+    meson.current_source_dir() / prebuilt_path / 'vndk-core',
 ]
 
-include_base = 'arm64/include'
+include_base = cpu / 'include'
 
 cc = meson.get_compiler('cpp')
 liblog_dep = declare_dependency(
