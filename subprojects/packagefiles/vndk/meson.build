@@ -22,24 +22,24 @@ prebuild_libraries = [
 
 include_base = cpu / 'include'
 
-cc = meson.get_compiler('cpp')
+cxx = meson.get_compiler('cpp')
 liblog_dep = declare_dependency(
-    dependencies : cc.find_library('log', dirs : prebuild_libraries),
+    dependencies : cxx.find_library('log', dirs : prebuild_libraries),
     include_directories : include_directories(include_base / 'system/logging/liblog/include_vndk'))
 meson.override_dependency('liblog', liblog_dep)
 
 cutils_dep = declare_dependency(
-    dependencies : cc.find_library('cutils', dirs : prebuild_libraries),
+    dependencies : cxx.find_library('cutils', dirs : prebuild_libraries),
     include_directories : include_directories(include_base / 'system/core/libcutils/include_outside_system'))
 meson.override_dependency('libcutils', cutils_dep)
 
 libutils_dep = declare_dependency(
-    dependencies : cc.find_library('utils', dirs : prebuild_libraries),
+    dependencies : cxx.find_library('utils', dirs : prebuild_libraries),
     include_directories : include_directories(include_base / 'system/core/libutils/include'))
 meson.override_dependency('libutils', libutils_dep)
 
 libhardware_dep = declare_dependency(
-    dependencies : cc.find_library('hardware', dirs : prebuild_libraries),
+    dependencies : cxx.find_library('hardware', dirs : prebuild_libraries),
     include_directories : include_directories(include_base / 'hardware/libhardware/include'))
 meson.override_dependency('libhardware', libhardware_dep)
 
@@ -52,13 +52,13 @@ libmedia_dep = declare_dependency(
 meson.override_dependency('libmedia', libmedia_dep)
 
 libui_dep = declare_dependency(
-    dependencies : cc.find_library('ui', dirs : prebuild_libraries),
+    dependencies : cxx.find_library('ui', dirs : prebuild_libraries),
     include_directories : include_directories(include_base / 'frameworks/native/libs/ui/include_vndk'))
 meson.override_dependency('libui', libui_dep)
 
 deps_cpp = [
-  cc.find_library('c++', dirs : prebuild_libraries),
-  cc.find_library('c', dirs : prebuild_libraries),
+  cxx.find_library('c++', dirs : prebuild_libraries),
+  cxx.find_library('c', dirs : prebuild_libraries),
 ]
 
 vndk_libcpp_dep = declare_dependency(
