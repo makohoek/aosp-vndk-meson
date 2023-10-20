@@ -61,5 +61,8 @@ vndk_libcpp_dep = declare_dependency(
         cxx.find_library('c++', dirs : prebuild_libraries),
         cxx.find_library('c', dirs : prebuild_libraries),
     ],
-    include_directories : include_directories(include_base / 'external/libcxx/include'))
+    include_directories : [
+        include_directories(include_base / 'external/libcxx/include'),
+        include_directories(include_base / 'external/libcxxabi/include'),
+    ])
 meson.override_dependency('cpp_stdlib', vndk_libcpp_dep)
