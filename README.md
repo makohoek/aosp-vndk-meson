@@ -38,13 +38,23 @@ meson setup --cross-file=aarch64-linux-android-ndk.txt build-aarch64-linux-andro
 meson compile -C build-aarch64-linux-android
 ```
 
+For `x86_64`, use:
+
+```
+meson setup --cross-file=x86_64-linux-android-ndk.txt build-x86_64-linux-android
+meson compile -C build-x86_64-linux-android
+```
+
 Building will automatically fetch the VNDK as a subproject and link against the required VNDK libraries.
 
 ## Install instructions
 ```
 adb root
 adb remount
+# for aarch64
 adb push build-aarch64-linux-android/vndk_meson /vendor/bin
+# for x86_64
+adb push build-x86_64-linux-android/vndk_meson /vendor/bin
 ```
 
 Then on board, test with:
