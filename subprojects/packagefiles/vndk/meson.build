@@ -56,12 +56,10 @@ libui_dep = declare_dependency(
     include_directories : include_directories(include_base / 'frameworks/native/libs/ui/include_vndk'))
 meson.override_dependency('libui', libui_dep)
 
-deps_cpp = [
-  cxx.find_library('c++', dirs : prebuild_libraries),
-  cxx.find_library('c', dirs : prebuild_libraries),
-]
-
 vndk_libcpp_dep = declare_dependency(
-    dependencies : deps_cpp,
+    dependencies : [
+        cxx.find_library('c++', dirs : prebuild_libraries),
+        cxx.find_library('c', dirs : prebuild_libraries),
+    ],
     include_directories : include_directories(include_base / 'external/libcxx/include'))
 meson.override_dependency('cpp_stdlib', vndk_libcpp_dep)
