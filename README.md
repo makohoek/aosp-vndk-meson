@@ -12,10 +12,13 @@ The following projects are involved:
 
 ## Pre-requisite
 
-1. Install upstream `meson` from https://github.com/mesonbuild/meson
+1. Install `meson` version `1.3.0` or higher. This can be done via `pip`
+```
+pip install meson==1.3.0
+```
 
-Do to a bug in meson, we cannot override the standard C++ library. See:
-https://github.com/mesonbuild/meson/pull/12361
+Note: earlier versions of meson have a bug with overriding the standard C++ library.
+See: https://github.com/mesonbuild/meson/pull/12361
 
 2. Download the NDK:
 ```
