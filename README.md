@@ -41,6 +41,13 @@ meson setup --cross-file=aarch64-linux-android-ndk.txt build-aarch64-linux-andro
 meson compile -C build-aarch64-linux-android
 ```
 
+For `arm32`, use:
+
+```
+meson setup --cross-file=arm-linux-androideabi-ndk.txt build-arm-linux-androideabi
+meson compile -C build-arm-linux-androideabi
+```
+
 For `x86_64`, use:
 
 ```
@@ -56,6 +63,8 @@ adb root
 adb remount
 # for aarch64
 adb push build-aarch64-linux-android/vndk_meson /vendor/bin
+# for arm32
+adb push build-arm-linux-androideabi/vndk_meson /vendor/bin
 # for x86_64
 adb push build-x86_64-linux-android/vndk_meson /vendor/bin
 ```
