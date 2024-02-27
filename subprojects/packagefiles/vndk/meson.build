@@ -10,6 +10,9 @@ if cpu_family == 'x86_64'
 elif cpu_family == 'aarch64'
   cpu = 'arm64'
   prebuilt_path = cpu / 'arch-arm64-armv8-a/shared'
+elif cpu_family == 'arm'
+  cpu = 'arm'
+  prebuilt_path = cpu / 'arch-arm-armv7-a-neon/shared'
 else
     error('Architecture:  ' + cpu_family + ' not supported')
 endif
