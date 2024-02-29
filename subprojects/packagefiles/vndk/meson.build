@@ -26,6 +26,12 @@ prebuild_libraries = [
 include_base = cpu / 'include'
 
 cxx = meson.get_compiler('cpp')
+
+libbase_dep = declare_dependency(
+    dependencies : cxx.find_library('base', dirs : prebuild_libraries),
+    include_directories : include_directories(include_base / 'system/libbase/include'))
+meson.override_dependency('libbase', libbase_dep)
+
 liblog_dep = declare_dependency(
     dependencies : cxx.find_library('log', dirs : prebuild_libraries),
     include_directories : include_directories(include_base / 'system/logging/liblog/include_vndk'))

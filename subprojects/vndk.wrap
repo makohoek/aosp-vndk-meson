@@ -9,4 +9,4 @@ depth = 1
 patch_directory = vndk
 
 [provide]
-dependency_names = vndk_libc, vndk_libcpp, liblog, libcutils, libutils, libhardware, libsystem, libmedia, libui
+dependency_names = vndk_libc, vndk_libcpp, libbase, liblog, libcutils, libutils, libhardware, libsystem, libmedia, libui
