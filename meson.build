@@ -4,7 +4,7 @@ project('vndk_meson_demo', 'cpp',
   version : '0.1',
   default_options : ['warning_level=3'])
 
-liblog_deps = dependency('liblog', required : true)
+libbase_deps = dependency('libbase', required : true)
 libui_deps = dependency('libui', required : true)
 libcutils_deps = dependency('libcutils', required : true)
 libutils_deps = dependency('libutils', required : true)
@@ -13,7 +13,7 @@ libsystem_deps = dependency('libsystem', required : true)
 libmedia_deps = dependency('libmedia', required : true)
 
 android_deps = ([
-    liblog_deps,
+    libbase_deps,
     libui_deps,
     libcutils_deps,
     libutils_deps,

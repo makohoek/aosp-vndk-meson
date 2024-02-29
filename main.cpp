@@ -6,7 +6,7 @@
  */
 #include <iostream>
 #define LOG_TAG "vndk_meson"
-#include <log/log.h>
+#include <android-base/logging.h>
 
 #include <ui/GraphicBufferAllocator.h>
 #include <hardware/camera3.h>
@@ -15,7 +15,7 @@
 int main() {
     std::cout << "Hello from cpp" << std::endl;
 
-    ALOGI("Hello from cpp");
+    LOG(INFO) << "Hello from cpp";
 
     android::GraphicBufferAllocator &allocator = android::GraphicBufferAllocator::get();
 
