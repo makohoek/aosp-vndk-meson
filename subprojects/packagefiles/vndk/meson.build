@@ -32,7 +32,10 @@ liblog_dep = declare_dependency(
 meson.override_dependency('liblog', liblog_dep)
 
 cutils_dep = declare_dependency(
-    dependencies : cxx.find_library('cutils', dirs : prebuild_libraries),
+    dependencies : [
+        cxx.find_library('cutils', dirs : prebuild_libraries),
+        liblog_dep,
+    ],
     include_directories : include_directories(include_base / 'system/core/libcutils/include_outside_system'))
 meson.override_dependency('libcutils', cutils_dep)
 
