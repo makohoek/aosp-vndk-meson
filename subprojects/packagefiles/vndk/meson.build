@@ -66,8 +66,17 @@ libmedia_dep = declare_dependency(
     include_directories : include_directories(include_base / 'system/media/camera/include'))
 meson.override_dependency('libmedia', libmedia_dep)
 
+libmath_dep = declare_dependency(
+    dependencies : cxx.find_library('m', dirs : prebuild_libraries),
+    include_directories : include_directories(include_base / 'frameworks/native/libs/math/include'),
+)
+meson.override_dependency('libmath', libmath_dep)
+
 libui_dep = declare_dependency(
-    dependencies : cxx.find_library('ui', dirs : prebuild_libraries),
+    dependencies : [
+        libmath_dep,
+        cxx.find_library('ui', dirs : prebuild_libraries),
+    ],
     include_directories : include_directories(include_base / 'frameworks/native/libs/ui/include_vndk'))
 meson.override_dependency('libui', libui_dep)
 
