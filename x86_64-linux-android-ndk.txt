@@ -2,7 +2,7 @@
 
 [constants]
 # TODO: edit these paths for your own locations
-ndk = '/mnt/work/aosp/android-ndk-r26b'
+ndk = '/mnt/work/aosp/android-ndk-r26d'
 
 # see: https://android.googlesource.com/platform/ndk/+/master/docs/BuildSystemMaintainers.md#target-selection
 triple = 'x86_64-linux-android'
