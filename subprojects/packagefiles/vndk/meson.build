@@ -77,7 +77,13 @@ libui_dep = declare_dependency(
         libmath_dep,
         cxx.find_library('ui', dirs : prebuild_libraries),
     ],
-    include_directories : include_directories(include_base / 'frameworks/native/libs/ui/include_vndk'))
+    include_directories : [
+        include_directories(include_base / 'frameworks/native/libs/ui/include_vndk'),
+        include_directories(include_base / 'generated-headers/hardware/interfaces/graphics/common/aidl/android.hardware.graphics.common-V4-ndk-source/gen/include'),
+        include_directories(include_base / 'generated-headers/hardware/interfaces/graphics/common/1.2/android.hardware.graphics.common@1.2_genc++_headers/gen/'),
+        include_directories(include_base / 'generated-headers/hardware/interfaces/graphics/common/1.1/android.hardware.graphics.common@1.1_genc++_headers/gen/'),
+        include_directories(include_base / 'generated-headers/hardware/interfaces/graphics/common/1.0/android.hardware.graphics.common@1.0_genc++_headers/gen/'),
+    ])
 meson.override_dependency('libui', libui_dep)
 
 vndk_libcpp_dep = declare_dependency(
