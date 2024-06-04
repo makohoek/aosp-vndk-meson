@@ -50,14 +50,17 @@ libutils_dep = declare_dependency(
     include_directories : include_directories(include_base / 'system/core/libutils/include'))
 meson.override_dependency('libutils', libutils_dep)
 
-libhardware_dep = declare_dependency(
-    dependencies : cxx.find_library('hardware', dirs : prebuild_libraries),
-    include_directories : include_directories(include_base / 'hardware/libhardware/include'))
-meson.override_dependency('libhardware', libhardware_dep)
-
 libsystem_dep = declare_dependency(
     include_directories : include_directories(include_base / 'system/core/libsystem/include'))
 meson.override_dependency('libsystem', libsystem_dep)
+
+libhardware_dep = declare_dependency(
+    dependencies : [
+      cxx.find_library('hardware', dirs : prebuild_libraries),
+      libsystem_dep,
+    ],
+    include_directories : include_directories(include_base / 'hardware/libhardware/include'))
+meson.override_dependency('libhardware', libhardware_dep)
 
 libmedia_dep = declare_dependency(
     include_directories : include_directories(include_base / 'system/media/camera/include'))
