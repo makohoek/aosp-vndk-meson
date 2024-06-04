@@ -7,8 +7,13 @@ that uses VNDK-only libraries, such as `libui`.
 
 The following projects are involved:
 - **NDK**: provides the cross-compiler toolchains such as `aarch64-linux-android33-clang++`
+    See: https://developer.android.com/ndk/downloads
+
 - **VNDK**: provides vendor-only libraries such as `libui` and such. These are *not* part of Android NDK
+    See: https://android.googlesource.com/platform/prebuilts/vndk/v33/
+
 - **Meson**: as a build system
+    See: https://mesonbuild.com/
 
 ## Pre-requisite
 
